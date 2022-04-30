@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-
+import Spinner from './Spinner';
+const API = 'https://meme-api.herokuapp.com/gimme';
+interface state 
+{
+   url:string;
+}
 function App() {
+  const [url,setUrl] = useState<state | any>('hello');
+  const [isLoading,setIsLoading] = useState(true);
+
+  useEffect(()=>{
+    getMeme()
+  },[])
+  const getMeme = () => {
+    fetch(API)
+      .then(resp => resp.json())
+      .then(data => {
+        setIsLoading(false);
+        setUrl(data.url);
+        console.log(data.url);
+      })
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Memes on Click</h1>
+      <div className = 'container'>
+      {(isLoading)?<Spinner />:<img src = {url} className = 'real-image'/>}
+      <button onClick = {getMeme}>Get meme</button>
+      </div>
     </div>
   );
 }
