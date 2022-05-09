@@ -14,18 +14,16 @@
   margin-top: 10px;
   width: 100px;
   height: 40px;
+  color:white;
   border-radius: 8px;
   border: 2px solid black;
-  background-color: yellow;
+  background-color:rgb(145, 70, 225);
   font-weight: bold;
 }
 
 .container button:hover {
-  background-color: aqua;
+  background-color:rgb(44, 121, 222)
 }
-
-
-
 .real-image {
   width: 60vw;
   height: 80vh;

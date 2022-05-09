@@ -20,7 +20,7 @@ function App() {
         setIsLoading(false);
         setUrl(data.url);
       });
-    
+     
   }
   
   return (
