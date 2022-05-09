@@ -25,11 +25,12 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Memes on Click</h1>
+      <h1 className = "header">Dope🔥 memes</h1>
       <div className = 'container'>
       {(isLoading)?<Spinner />:<img src = {url} className = 'real-image'/>}
       <button onClick = {getMeme}>New meme</button>
       </div>
+      <h1 className = "footer">Crafted with ❤ by <a  href= "https://www.instagram.com/itzrahulyadav/">Rahul</a></h1>
     </div>
   );
 }
