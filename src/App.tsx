@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Spinner from './Spinner';
 const API = 'https://meme-api.herokuapp.com/gimme';
@@ -19,8 +19,8 @@ function App() {
       .then(data => {
         setIsLoading(false);
         setUrl(data.url);
-        console.log(data.url);
-      })
+      });
+    
   }
   
   return (
@@ -28,7 +28,7 @@ function App() {
       <h1>Memes on Click</h1>
       <div className = 'container'>
       {(isLoading)?<Spinner />:<img src = {url} className = 'real-image'/>}
-      <button onClick = {getMeme}>Get meme</button>
+      <button onClick = {getMeme}>New meme</button>
       </div>
     </div>
   );
