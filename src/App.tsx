@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Spinner from './Spinner';
-const API = 'https://meme-api.herokuapp.com/gimme';
+const API = 'https://meme-api.com/gimme';
 interface state 
 {
    url:string;
@@ -25,12 +25,12 @@ function App() {
   
   return (
     <div className="App">
-      <h1 className = "header">Dope🔥 memes</h1>
+      <h1 className = "header">Random memes</h1>
       <div className = 'container'>
       {(isLoading)?<Spinner />:<img src = {url} className = 'real-image'/>}
       <button onClick = {getMeme}>New meme</button>
       </div>
-      <h1 className = "footer">Crafted with ❤ by <a  href= "https://www.instagram.com/itzrahulyadav/">Rahul</a></h1>
+      
     </div>
   );
 }
